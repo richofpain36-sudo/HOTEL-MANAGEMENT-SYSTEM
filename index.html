@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTEL MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div>
+                <h1>HOTEL MANAGEMENT SYSTEM</h1>
+                <p>HOTEL & GUEST HOUSE MANAGEMENT SYSTEM</p>
+            </div>
+            <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+        </div>
+    </header>
+
+    <nav>
+        <button id="nav-dashboard" class="nav-btn active">DASHBOARD</button>
+        <button id="nav-rooms" class="nav-btn">ROOMS</button>
+        <button id="nav-guest" class="nav-btn">GUEST</button>
+        <button id="nav-reservations" class="nav-btn">RESERVATIONS</button>
+        <button id="nav-payment" class="nav-btn">PAYMENT</button>
+        <button id="nav-staff" class="nav-btn">STAFF</button>
+        <button id="nav-reports" class="nav-btn">REPORTS</button>
+    </nav>
+
+    <!-- DASHBOARD / SUMMARY CARDS -->
+    <main id="dashboard-section" class="page-section dashboard-cards">
+        <div class="card">
+            <h3>Total Rooms</h3>
+            <p class="number" id="totalRooms">50</p>
+        </div>
+        <div class="card">
+            <h3>Occupied Rooms</h3>
+            <p class="number" id="occupiedRooms">32</p>
+        </div>
+        <div class="card">
+            <h3>Available Rooms</h3>
+            <p class="number" id="availableRooms">18</p>
+        </div>
+        <div class="card">
+            <h3>Today's Check-ins</h3>
+            <p class="number" id="todayCheckins">7</p>
+        </div>
+    </main>
+
+    <!-- ROOM STATUS GRID -->
+    <section id="rooms-section" class="page-section rooms-container">
+        <h2>Room Status & Inventory Grid</h2>
+        <div class="room-grid" id="roomGrid"></div>
+    </section>
+
+    <!-- QUICK BOOKING FORM -->
+    <section id="booking-section" class="page-section form-container">
+        <h2>Quick Room Booking</h2>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="guestName">Guest Name:</label>
+                <input type="text" id="guestName" required placeholder="Enter guest full name">
+            </div>
+            <div class="form-group">
+                <label for="roomType">Room Type:</label>
+                <select id="roomType">
+                    <option value="Single" data-price="50">Single Room ($50/night)</option>
+                    <option value="Double" data-price="80">Double Room ($80/night)</option>
+                    <option value="Suite" data-price="150">Executive Suite ($150/night)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="checkIn">Check-In Date:</label>
+                <input type="date" id="checkIn" required>
+            </div>
+            <div class="form-group">
+                <label for="nights">Nights:</label>
+                <input type="number" id="nights" value="1" min="1" required>
+            </div>
+            <button type="submit" class="submit-btn">Book Room</button>
+        </form>
+    </section>
+
+    <!-- RECENT BOOKINGS TABLE -->
+    <section id="table-section" class="page-section table-container">
+        <h2>Reservations & Guest Records</h2>
+        
+        <div class="table-actions">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search guest name...">
+            </div>
+            <div class="btn-group">
+                <button id="exportBtn" class="action-btn export-btn">Export to CSV</button>
+                <button id="printBtn" class="action-btn print-btn">Print Report</button>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Guest Name</th>
+                    <th>Room Type</th>
+                    <th>Check-In</th>
+                    <th>Nights</th>
+                    <th>Total ($)</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="bookingTableBody"></tbody>
+        </table>
+    </section>
+
+    <!-- STAFF MANAGEMENT SECTION -->
+    <section id="staff-section" class="page-section table-container hidden">
+        <h2>Staff & Housekeeping Roster</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Staff ID</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Shift</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>ST-101</td><td>Michael Adams</td><td>Front Desk Manager</td><td>Morning</td><td><span class="status confirmed">On Duty</span></td></tr>
+                <tr><td>ST-102</td><td>Sarah Jenkins</td><td>Housekeeping Lead</td><td>Morning</td><td><span class="status confirmed">On Duty</span></td></tr>
+                <tr><td>ST-103</td><td>David O'Connor</td><td>Maintenance Tech</td><td>Night</td><td><span class="status pending">Off Duty</span></td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- REPORTS SUMMARY SECTION -->
+    <section id="reports-section" class="page-section table-container hidden">
+        <h2>Financial & Occupancy Summary</h2>
+        <div class="dashboard-cards">
+            <div class="card">
+                <h3>Total Revenue</h3>
+                <p class="number" id="totalRevenue">$0</p>
+            </div>
+            <div class="card">
+                <h3>Occupancy Rate</h3>
+                <p class="number" id="occupancyRate">0%</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html><!-- PROJECT DESCRIPTION & OVERVIEW -->
+    <section class="description-container">
+        <h2>About The System</h2>
+        <p>
+            Welcome to the <strong>Hotel & Guest House Management System</strong> — a web application engineered to streamline daily front-desk operations, room allocations, guest reservations, and billing administration.
+        </p>
+        <div class="tech-stack">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript (ES6+)</span>
+            <span>Local Storage API</span>
+        </div>
+    </section>

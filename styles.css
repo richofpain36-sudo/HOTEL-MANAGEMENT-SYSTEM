@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    padding-bottom: 50px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: #1e293b;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.theme-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background-color: white;
+    color: #1e293b;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #0f172a;
+    padding: 10px 0;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+nav button:hover, nav button.active {
+    background-color: #1d4ed8;
+}
+
+.dashboard-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 25px auto;
+    max-width: 1000px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.card .number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2563eb;
+    margin-top: 5px;
+}
+
+.rooms-container, .form-container, .table-container {
+    background-color: white;
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #1e293b;
+    text-align: center;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.room-card {
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.room-card.available { background-color: #22c55e; }
+.room-card.occupied { background-color: #ef4444; }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #16a34a;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.table-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-group { display: flex; gap: 10px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th { background-color: #f8fafc; }
+
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status.confirmed { background-color: #dcfce7; color: #15803d; }
+.status.pending { background-color: #fef9c3; color: #a16207; }
+
+.action-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.checkout-btn { background-color: #ef4444; color: white; }
+.export-btn { background-color: #2563eb; color: white; }
+.print-btn { background-color: #475569; color: white; }
+
+.hidden { display: none !important; }
+
+/* Dark Mode Overrides */
+body.dark-mode { background-color: #0f172a; color: #f8fafc; }
+body.dark-mode .card,
+body.dark-mode .form-container,
+body.dark-mode .table-container,
+body.dark-mode .rooms-container {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+body.dark-mode th { background-color: #334155; }
+body.dark-mode td { border-color: #334155; }
+body.dark-mode input, body.dark-mode select {
+    background-color: #334155;
+    color: white;
+    border-color: #475569;
+}/* Description & Overview Card Styling */
+.description-container {
+    background-color: white;
+    max-width: 900px;
+    margin: 20px auto 10px auto;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.description-container h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.description-container p {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tech-stack span {
+    background-color: #e2e8f0;
+    color: #334155;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+/* Dark Mode Adjustment for Description Card */
+body.dark-mode .description-container {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+body.dark-mode .description-container p {
+    color: #cbd5e1;
+}
+
+body.dark-mode .tech-stack span {
+    background-color: #334155;
+    color: #f1f5f9;
+}
