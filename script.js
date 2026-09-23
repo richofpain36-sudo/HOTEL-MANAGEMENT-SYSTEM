@@ -185,4 +185,41 @@ themeToggle?.addEventListener('click', () => {
     const isDark = document.body.classList.contains('dark-mode');
     themeToggle.innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});// Nav Modal Popup Logic
+const navModal = document.getElementById('navModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalBodyText = document.getElementById('modalBodyText');
+const closeNavModal = document.getElementById('closeNavModal');
+const okModalBtn = document.getElementById('okModalBtn');
+
+// Content details for each blue navigation button
+const navInfo = {
+    'DASHBOARD': 'Welcome to the Dashboard! Here you can view total hotel capacity, occupied rooms, vacant rooms, and current check-ins.',
+    'ROOMS': 'Room Status Grid: Displays real-time availability for all 16 primary rooms. Tap any room card to cycle between Vacant (Green), Occupied (Red), and Maintenance (Yellow).',
+    'GUEST': 'Guest Registration: Use this section to record guest check-ins, select room categories, and set stay durations.',
+    'RESERVATIONS': 'Reservations Management: View active bookings, search guest records, print reports, or export customer data to CSV.',
+    'PAYMENT': 'Payment & Billing: Generate itemized receipts, calculate service charges (10% tax), and process final check-outs.',
+    'STAFF': 'Staff Roster: Overview of front desk managers, housekeeping team schedules, and maintenance personnel duties.',
+    'REPORTS': 'Financial Analytics: View overall revenue figures and real-time occupancy percentages.',
+    'HISTORY': 'Guest Archive: Access past checkout records and historical guest ledger logs.'
+};
+
+// Event listener for blue navigation buttons
+document.querySelectorAll('nav button').forEach(button => {
+    button.addEventListener('click', () => {
+        const btnText = button.innerText.trim().toUpperCase();
+        
+        if (navInfo[btnText]) {
+            modalTitle.innerText = btnText + ' SECTION';
+            modalBodyText.innerText = navInfo[btnText];
+            navModal.classList.remove('hidden');
+        }
+    });
+});
+
+// Close popup actions
+closeNavModal?.addEventListener('click', () => navModal.classList.add('hidden'));
+okModalBtn?.addEventListener('click', () => navModal.classList.add('hidden'));
+window.addEventListener('click', (e) => {
+    if (e.target === navModal) navModal.classList.add('hidden');
 });
